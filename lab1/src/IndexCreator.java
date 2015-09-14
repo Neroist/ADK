@@ -4,5 +4,20 @@ public class IndexCreator {
 		//TODO
 	}
 	
+	private void incrementThreeLetter(){
+		//TODO
+	}
+	
+	private void storePosInB(long pos){
+		//TODO
+	}
+	private void storePosInA(long pos){
+		//TODO
+	}
+	private void storeWordInI(String word, long pos){
+		//TODO
+	}
+	
+	
 	
 }
