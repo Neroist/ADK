@@ -10,10 +10,8 @@ public class IndexCreator {
 	private char[] threeLetter={'a','a','a'};
 
 	public static void main(String[] args) {
-		//TODO
-		
+		//TODO	
 	}
-	
 	private void incrementThreeLetter() throws LimitExceededException{
 		/*
 		Inkrementerar character arrayen från höger till vänster, upp till z,z,z
@@ -33,9 +31,7 @@ public class IndexCreator {
 			}
 		}else{
 			threeLetter[2]=intToLetter(letterToInt(threeLetter[0])+1);
-		}
-		
-		
+		}	
 	}
 	
 	private void storePosInP(long pos){
