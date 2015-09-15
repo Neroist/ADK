@@ -19,5 +19,4 @@ public class Konkordans {
 	private void showAllOccurrences(long[] wordPositions){
 		//TODO
 	}
-	
 }

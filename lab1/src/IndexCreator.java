@@ -1,6 +1,12 @@
 
 public class IndexCreator {
+	private String sortedKorpus = "sortedKorp";
+	private String indexFile = "indexKorp";
+	private String hashFile = "hashKorp";
+	private String positionsFile = "positionsKorp";
+	private char[] threeLetter={'a','a','a'};
 	public static void main(String[] args) {
+		System.out.println((int) 'a');
 		//TODO
 	}
 	
@@ -8,7 +14,7 @@ public class IndexCreator {
 		//TODO
 	}
 	
-	private void storePosInB(long pos){
+	private void storePosInP(long pos){
 		//TODO
 	}
 	private void storePosInA(long pos){
