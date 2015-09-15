@@ -3,9 +3,6 @@ public class Konkordans {
 	
 	public static void main(String[] args) {
 		//TODO
-		int wordHash;
-		wordHash = tlHash("aaa");
-		System.out.println(wordHash);
 	}
 	private long binSearch(String word){
 		//boolean? måste kunna visa om något ord inte finns med.
