@@ -6,15 +6,16 @@ public class Konkordans {
 	}
 	private long binSearch(String word){
 		//boolean? måste kunna visa om något ord inte finns med.
+		return null;
 	}
-	private int tlHash(String threeLetter){
-		//TODO
-	}
+
 	private long getIndexPosition(String word){
 		//TODO
+		return null;
 	}
 	private long[] getWordPositions(long indexPosition){
 		//TODO
+		return null;
 	}
 	private void showAllOccurrences(long[] wordPositions){
 		//TODO
