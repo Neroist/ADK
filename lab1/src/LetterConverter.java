@@ -6,11 +6,11 @@ public class LetterConverter {
 		switch (letter){
 		case ' ':
 			return 0;
-		case 'Å':
+		case 'Ã¥':
 			return 27;
-		case 'Ä':
+		case 'Ã¤':
 			return 28;
-		case 'Ö':
+		case 'Ã¶':
 			return 29;
 		default:
 			return (int) letter-96;
@@ -23,11 +23,11 @@ public class LetterConverter {
 			case 0:
 				return ' ';
 			case 27:
-				return 'Å';
+				return 'Ã¥';
 			case 28:
-				return 'Ä';
+				return 'Ã¤';
 			case 29:
-				return 'Ö';
+				return 'Ã¶';
 			default:
 				return (char) (intOfLetter+96);
 		}
