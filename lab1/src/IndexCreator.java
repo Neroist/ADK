@@ -7,10 +7,14 @@ public class IndexCreator {
 	private String indexFile = "indexKorp";
 	private String hashFile = "hashKorp";
 	private String positionsFile = "positionsKorp";
-	private char[] threeLetter={'a','a','a'};
+	
 
 	public static void main(String[] args) {
-		//TODO	
+		char[] threeLetters={'a','a','a'};
+		for(int i=0;i<30*30*30;i++){
+			System.out.println(threeLetters.toString());
+			
+		}
 	}
 	private void incrementThreeLetter() throws LimitExceededException{
 		/*
