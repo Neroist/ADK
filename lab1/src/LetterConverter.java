@@ -18,7 +18,7 @@ public class LetterConverter {
 	}
 	public static char intToLetter(int intOfLetter){
 		//Takes one int (defined for 0-29.
-		//Returns ' ', a-z +�,�,�, lowercase letters, orderd as written. 
+		//Returns ' ', a-z +å,ä,ö, lowercase letters, orderd as written. 
 		switch (intOfLetter){
 			case 0:
 				return ' ';
