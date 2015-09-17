@@ -18,54 +18,38 @@ public class IndexCreator {
 		RandomAccessFile hashFile = new RandomAccessFile(hashFileName, "rw");
 		RandomAccessFile positionsFile = new RandomAccessFile(positionsFileName, "rw");
 		String currentLine;
-		String currentWord;
+		String currentWord = "";
 		long currentWPos;
 		String[] splitLine;
 		ArrayList<Long> wordPositions = new ArrayList<Long>();
 		String lastReadWord;
-		currentLine = sortedKorpFile.readLine();
-		splitLine 	= currentLine.split(" ");
-		lastReadWord= splitLine[0];
-		currentWPos = Long.parseLong(splitLine[1]);
+		
 		while(sortedKorpFile.getFilePointer()!=sortedKorpFile.length()){
-			currentWord = lastReadWord;
-			do{
-				wordPositions.add(currentWPos);
-				currentLine = sortedKorpFile.readLine();
-				
-				splitLine = currentLine.split(" ");
-				lastReadWord= splitLine[0];
-				currentWPos = Long.parseLong(splitLine[1]);
-			}while(currentWord.equals(lastReadWord));
-			//skriva current Word till A
-			
+			currentLine = sortedKorpFile.readLine();
+			splitLine = currentLine.split(" ");
+			lastReadWord= splitLine[0];
+			currentWPos = Long.parseLong(splitLine[1]);
+			if (currentWord.equals(lastReadWord)){
+				positionsFile.writeLong(currentWPos);
+			}
+			else{
+				positionsFile.writeByte('\n');
+				indexFile.writeByte('\n');
+				//Skriv \n till positionsFile
+				//Skriv \n till indexFile
+				if(WordFunctions.threeFirst(currentWord)!=WordFunctions.threeFirst(lastReadWord)){
+					//Skriv ny position till hashFile, till den position som hashfunktionen ger. 
+					if(WordFunctions.tlHash(lastReadWord)<0L){
+						System.out.println(lastReadWord);
+					}
+					hashFile.seek(WordFunctions.tlHash(lastReadWord)*8);
+					hashFile.writeLong(indexFile.getFilePointer());
+				}
+				indexFile.writeBytes(lastReadWord);indexFile.writeByte(' ');indexFile.writeLong(positionsFile.getFilePointer());
+				//D�r pekaren �r efter \n sparas i indexFile efter ordet
+				currentWord = lastReadWord;
+			}
 		}
-		//System.out.println(currentLine);
-		
-		
-	}
-	
-	
-	private void storePosInP(long pos){
-		//TODO
-	}
-	private void storePosInA(long pos){
-		//TODO
-	}
-	private void storeWordInI(String word, long pos){
-		//TODO
-	}
-	private static String threeFirst(String word){
-		//returnerar de tre första bokstäverna i en sträng 
-		//fyller på med mellanrum om len(word) <3
-		if(word.length()==1){
-			return word+"  ";
-		}
-		else if(word.length()==2){
-			return word+" ";
-		}
-		else{
-			return word.substring(0, 3);
-		}
+	sortedKorpFile.close();indexFile.close();hashFile.close();positionsFile.close();	
 	}
 }
